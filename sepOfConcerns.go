@@ -9,7 +9,7 @@ import (
 
 //SINGLE RESPONSIBILITY PRINCIPLE
 /*
-The single responsibility principle states that a type should only one primary responsible as result
+The single responsibility principle states that a type should only have one primary responsible as result
 it should have only one reason to change, and the reason must be related to its pry responsibility.
 */
 //count the no of entries

@@ -49,12 +49,14 @@ func (f *Filter) FilterByColor(products []Product, color Color) []*Product {
 
 //THE ABOVE CODE WILL VOILATE THE OPEN CLOSED PRINCIPLE when your boss askes to modify the code
 //to retify this we use the Specification Principle of the interface
+//a composite specification if implemented when you are required to add two or more specification to
+//you pre existing function/method
 
 type Specification interface { // here you are going to test whether the function satisfies a criteria
 	IsSatisfied(p *Product) bool
 }
 
-//to check the color
+//create a color specification
 type ColorSpecification struct {
 	color Color
 }
@@ -63,7 +65,7 @@ func (c ColorSpecification) IsSatisfied(p *Product) bool {
 	return p.color == c.color
 }
 
-//to check the size specification
+//create a size specification
 type SizeSpecification struct {
 	size Size
 }
@@ -84,6 +86,15 @@ func (bf *BetterFilter) Filter(products []Product, spec Specification) []*Produc
 	}
 
 	return result
+}
+
+//composite specification
+type AndSpecification struct {
+	first, second Specification
+}
+
+func (a AndSpecification) IsSatisfied(p *Product) bool {
+	return a.first.IsSatisfied(p) && a.second.IsSatisfied(p)
 }
 
 func main() {
@@ -108,4 +119,14 @@ func main() {
 	for _, v := range bf.Filter(products, greenSpec) {
 		fmt.Printf("- %s is green\n", v.name)
 	}
+
+	largeSpec := SizeSpecification{large}
+	lgSpec := AndSpecification{greenSpec, largeSpec}
+
+	fmt.Printf("Large green products:\n")
+
+	for _, v := range bf.Filter(products, lgSpec) {
+		fmt.Printf("-%s is green\n", v.name)
+	}
 }
+
