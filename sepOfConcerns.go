@@ -82,4 +82,9 @@ func main() {
 	j.AddEntry("I became more wise today")
 	j.AddEntry("I became better in Christ today")
 	fmt.Println(j.String())
+
+	SaveToFile(&j, "journal.txt")
+
+	p := Persistence{"\r\n"}
+	p.SaveToFile(&j, "journal.txt")
 }
