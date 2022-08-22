@@ -19,11 +19,11 @@ func (e *HTMLElement) String() string {
 	return e.String()
 }
 
-func NewHtmlBuilder(rootName string) *HTMLElement{
-	return &HTMLElement{rootName, HTMLElement{
-		rootName, "", []HTMLElement{}
-	}}
-}
+// func NewHtmlBuilder(rootName string) *HTMLElement{
+// 	return &HTMLElement{rootName, HTMLElement{
+// 		rootName, "", []HTMLElement{}
+// 	}}
+// }
 
 var sb = strings.Builder{}
 

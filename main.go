@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	builder "github/Durotimicode-design-patterns/buildPrinciple"
 )
 
@@ -8,22 +9,14 @@ func main() {
 
 	builder.BuildUnorderList()
 
-	rc := &Rectangle{2, 3}
-	rg :=
-		UseIt(rc)
+	pb := builder.NewPersonBuilder()
 
-	parent := Person{"John"}
-	child1 := Person{"Edmond"}
-	child2 := Person{"Mary"}
+	pb.Lives().At("123 Birmingham City").In("London").
+		WithPostCode("ABQ124").Works().PlaceOfWork("Victoria Island").
+		AsA("Software Engineer").Earning(70000)
 
-	//low level
-	relationships := Relationships{}
-	relationships.AddParentAndChild(&parent, &child1)
-	relationships.AddParentAndChild(&parent, &child2)
-
-	r := Research{relationships}
-	r.Investigate()
-
+	person := pb.BuildPerson()
+	fmt.Println(person)
 
 	//
 
