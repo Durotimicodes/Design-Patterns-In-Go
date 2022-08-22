@@ -1,4 +1,4 @@
-package main
+package solid
 
 /*
 The interface segragation principle states that you should not put too much into an interface
@@ -94,7 +94,3 @@ func (m MultiFunctionMachine) Print(d Document){
 	
 }
 
-
-func main(){
-
-}

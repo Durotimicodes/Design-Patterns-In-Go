@@ -1,7 +1,6 @@
-package main
+package solid
 
 import "fmt"
-
 //Open closed principle OCP
 /*
 This states that a type should be open for extension, but closed for modification
@@ -97,36 +96,33 @@ func (a AndSpecification) IsSatisfied(p *Product) bool {
 	return a.first.IsSatisfied(p) && a.second.IsSatisfied(p)
 }
 
-func main() {
-	apple := Product{"Apple", green, small}
-	tree := Product{"Tree", green, large}
-	house := Product{"House", blue, large}
 
-	products := []Product{apple, tree, house}
-	fmt.Printf("Green products (old):\n")
+var apple = Product{"Apple", green, small}
+var tree = Product{"Tree", green, large}
+var house = Product{"House", blue, large}
 
-	f := Filter{}
+var products = []Product{apple, tree, house}
 
-	for _, v := range f.FilterByColor(products, blue) {
-		fmt.Printf("- %s is blue\n", v.name)
-	}
+f := Filter{}
 
-	fmt.Printf("Green products (new): \n")
-
-	greenSpec := ColorSpecification{green}
-
-	bf := BetterFilter{}
-	for _, v := range bf.Filter(products, greenSpec) {
-		fmt.Printf("- %s is green\n", v.name)
-	}
-
-	largeSpec := SizeSpecification{large}
-	lgSpec := AndSpecification{greenSpec, largeSpec}
-
-	fmt.Printf("Large green products:\n")
-
-	for _, v := range bf.Filter(products, lgSpec) {
-		fmt.Printf("-%s is green\n", v.name)
-	}
+for _, v := range f.FilterByColor(products, blue) {
+	fmt.Printf("- %s is blue\n", v.name)
 }
 
+fmt.Printf("Green products (new): \n")
+
+greenSpec := ColorSpecification{green}
+
+bf := BetterFilter{}
+for _, v := range bf.Filter(products, greenSpec) {
+	fmt.Printf("- %s is green\n", v.name)
+}
+
+largeSpec := SizeSpecification{large}
+lgSpec := AndSpecification{greenSpec, largeSpec}
+
+fmt.Printf("Large green products:\n")
+
+for _, v := range bf.Filter(products, lgSpec) {
+	fmt.Printf("-%s is green\n", v.name)
+}

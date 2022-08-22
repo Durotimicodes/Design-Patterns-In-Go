@@ -1,4 +1,4 @@
-package main
+package solid
 
 import "fmt"
 
@@ -57,8 +57,4 @@ func UseIt(sized Sized) {
 	fmt.Println("Expected an area of", expectedArea, ", but got", actualArea)
 }
 
-func main(){
 
-	rc := &Rectangle{2, 3}
-	UseIt(rc)
-}

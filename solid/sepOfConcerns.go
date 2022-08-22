@@ -1,4 +1,4 @@
-package main
+package solid
 
 import (
 	"fmt"
@@ -75,16 +75,4 @@ func (p *Persistence) SaveToFile(j *Journal, filename string) {
 	_ = ioutil.WriteFile(filename, []byte(strings.Join(j.entries, p.lineSeperator)), 0644)
 }
 
-func main() {
 
-	j := Journal{}
-
-	j.AddEntry("I became more wise today")
-	j.AddEntry("I became better in Christ today")
-	fmt.Println(j.String())
-
-	SaveToFile(&j, "journal.txt")
-
-	p := Persistence{"\r\n"}
-	p.SaveToFile(&j, "journal.txt")
-}
