@@ -18,6 +18,6 @@ func main() {
 	person := pb.BuildPerson()
 	fmt.Println(person)
 
-	//
+	//notification
 
 }
