@@ -75,4 +75,3 @@ func (p *Persistence) SaveToFile(j *Journal, filename string) {
 	_ = ioutil.WriteFile(filename, []byte(strings.Join(j.entries, p.lineSeperator)), 0644)
 }
 
-

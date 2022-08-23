@@ -29,4 +29,16 @@ func main() {
 	p.SayHello()
 	fmt.Println(p)
 
+	developerFactory := factoriesdesign.NewEmployeeFactory("developer", 60000)
+	managerFacyory := factoriesdesign.NewEmployeeFactory("manager", 80000)
+
+	developer := developerFactory("Lydia")
+	manager := managerFacyory("Lauretta")
+
+	fmt.Println(developer)
+	fmt.Println(manager)
+
+	bossFactory := factoriesdesign.NewEmployeeFactory("CEO", 100000)
+	fmt.Println(&bossFactory)
+
 }
