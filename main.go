@@ -25,4 +25,8 @@ func main() {
 
 	fmt.Println("factory function:", ff)
 
+	p := factoriesdesign.NewPersonInterface("Edmond", 32)
+	p.SayHello()
+	fmt.Println(p)
+
 }

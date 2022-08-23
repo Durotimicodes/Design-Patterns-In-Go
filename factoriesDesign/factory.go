@@ -12,3 +12,4 @@ func NewPerson(name string, age int) *Person {
 	}
 	return &Person{name, age, 2}
 }
+

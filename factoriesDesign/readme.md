@@ -7,5 +7,6 @@ can be outsourced to a seperate factory function aka constructor. They may also
 exist in a seperate struct (Factory) basically for the sake of organization.
 
 # factory is a component responsible for the wholesale creation of objects.
-# A factory function is a free standing function which returns an instance of the object you want to creat
+# A factory function is a free standing function which returns an instance of the object you want to create
+# when you create a factory function you do not always have to return a struct, you can return an interface which that struct conforms to.
 
