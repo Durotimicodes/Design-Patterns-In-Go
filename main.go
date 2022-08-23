@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	builder "github/Durotimicode-design-patterns/buildPrinciple"
+	builderdesign "github/Durotimicode-design-patterns/builderDesign"
+	factoriesdesign "github/Durotimicode-design-patterns/factoriesDesign"
 )
 
 func main() {
 
-	builder.BuildUnorderList()
+	builderdesign.BuildUnorderList()
 
-	pb := builder.NewPersonBuilder()
+	pb := builderdesign.NewPersonBuilder()
 
 	pb.Lives().At("123 Birmingham City").In("London").
 		WithPostCode("ABQ124").Works().PlaceOfWork("Victoria Island").
@@ -19,5 +20,9 @@ func main() {
 	fmt.Println(person)
 
 	//notification
+
+	ff := factoriesdesign.NewPerson("Oluwadurotimi", 31)
+
+	fmt.Println("factory function:", ff)
 
 }
