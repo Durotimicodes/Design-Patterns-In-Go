@@ -39,6 +39,7 @@ func main() {
 	fmt.Println(manager)
 
 	bossFactory := factoriesdesign.NewEmployeeFactory("CEO", 100000)
+	bossFactory.AnnualIncome = 10000
 	fmt.Println(&bossFactory)
 
 }
